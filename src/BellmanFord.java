@@ -1,9 +1,10 @@
 import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class BellmanFord {
-    private static final double EPSILON = 1E - 14;
+    private static final double EPSILON = 1E-14;
     private  double[] distTo; // distTo[v] = distance of shortest s->v path
     private int[] edgeTo; // edgeTo[v] = last edge on shortest s->v path
     private DirectedEdge[] aresta; // queue of edges to relax
@@ -122,8 +123,25 @@ public class BellmanFord {
             distTo = new double[V];
             edgeTo = new int[V];
             aresta = new DirectedEdge[E];
+
+            for (int i = 0; i<E;i++){
+                a = sc.nextInt();
+                b = sc.nextInt();
+                cost = Double.parseDouble(sc.next());
+                aresta[i] = new DirectedEdge(a,b,cost);
+            }
+
+        } catch (IOException e){
+            e.printStackTrace();
         }
 
+    }
+    public static void main(String[] args){
+        if (args.length < 2){
+            System.out.println("\n\n Uso java BellmanFord Grafo no inicial\n");
+            return;
+        }
+        BellmanFord BF = new BellmanFord(args[0],Integer.parseInt(args[1]) );
     }
 
 
