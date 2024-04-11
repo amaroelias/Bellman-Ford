@@ -27,7 +27,7 @@ public class BellmanFord {
         }
         for(i = 0;i < V;++i) {
             if(hasPathTo(i)) {
-                System.out.printf("Rota de %d a %d (%5 .2f)",s,i,
+                System.out.printf("Rota de %d a %d (%5.2f)",s, i,
         distTo[i]);
 
                 printPathTo(i);
